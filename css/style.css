@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+
+button {
+    display: block;
+    background-color: #7b38d8;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px;
+    width: 100px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.titulo, h1, h2, p {
+    font-family: 'Quicksand', sans-serif;
+    color: #a658af;
+    font-weight: bold;
+}
+
+.navbar {
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start; */
+    background-color: #e0aaca;
+    font-family: 'Quicksand', sans-serif;
+}
+
+li a {
+    color: black;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+fieldset {
+    color: #bc58b9;
+}
+
+.button2 {
+    color: violet;
+    border: 2px solid #71616b;
+}
+
+.button2:hover {
+    color: black;
+}
+
+footer {
+    background: url('fondo-floral.jpg');
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
