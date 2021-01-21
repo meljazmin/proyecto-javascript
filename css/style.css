@@ -69,3 +69,9 @@ footer {
     flex-direction: row;
     justify-content: flex-end;
 }
+
+
+#codigoDescuento {
+    margin-top: 70px; 
+}
+
