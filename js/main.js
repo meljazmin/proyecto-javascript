@@ -1,6 +1,8 @@
+let productosObjeto = [];
+
 function aplicarDescuento() {
     let codDescuento = document.getElementById('descuento').value;
-    let precioProducto = 50;
+    let precioProducto = producto.precio;
     let precioFinal;
     let descuento = 0;
 
@@ -20,8 +22,7 @@ function aplicarDescuento() {
 }
 
 function cargarProductos() {
-
-    let productosObjeto = [];
+    productosObjeto = [];
     productosObjeto.push(new Producto("Moño", "Rojo", 150, 100, 'imagenes/moño-rojo.jpg'));
     productosObjeto.push(new Producto("Moño", "Rosa", 150, 100, 'imagenes/moño-rosa.jpg'));
     productosObjeto.push(new Producto("Moño", "Dorado", 250, 80, 'imagenes/moño-dorado.jpg'));
@@ -34,22 +35,48 @@ function cargarProductos() {
     productosObjeto.push(new Producto("Anillo", "Oro", 6000, 40, 'imagenes/anillo-oro.jpg'));
     productosObjeto.push(new Producto("Anillo", "Plata", 3000, 30, 'imagenes/anillo-plata.jpg'));
     productosObjeto.push(new Producto("Anillo", "Amatista", 3000, 30, 'imagenes/anillo-amatista.jpg'));
+}
+
+function mostrarProductos(filtro) {
+    let listaProductos;
+
+    if (filtro) {
+        listaProductos = productosObjeto.filter((producto) => {
+            let datosComparar = `${producto.tipoDeProducto} ${producto.nombre} ${producto.precio}`;
+            return datosComparar.toLowerCase().includes(filtro.toLowerCase());
+        });
+    } else {
+        listaProductos = productosObjeto;
+    }
 
     //Recorriendo lista de productos
     const carritoDiv = document.getElementById("carrito");
-
-    for (let i = 0; i < productosObjeto.length; i++) {
-        let producto = productosObjeto[i];
+    carritoDiv.innerHTML = "";
+    for (let i = 0; i < listaProductos.length; i++) {
+        let producto = listaProductos[i];
         carritoDiv.innerHTML += `
-        <div class="col-md-3 text-center" style="margin-top: 20px">
-            <img src="${producto.imagen}" alt="${producto.tipoDeProducto} ${producto.nombre}" title="${producto.nombre}" width="60%" height="60%" />
-            <h2>${producto.tipoDeProducto} ${producto.nombre}</h2>
-            <p>ARS$${producto.precio}</p>
-            <p>Disponible: ${producto.stock}</p>
-        </div>
-        `;
+         <div class="col-md-3 text-center" style="margin-top: 20px">
+             <img src="${producto.imagen}" alt="${producto.tipoDeProducto} ${producto.nombre}" title="${producto.nombre}" width="60%" height="60%" />
+             <h2>${producto.tipoDeProducto} ${producto.nombre}</h2>
+             <p>ARS$${producto.precio}</p>
+             <p>Disponible: ${producto.stock}</p>
+         </div>
+         `;
     }
 }
+
+function cargarPantallaProductos() {
+    cargarProductos();
+
+    document.getElementById("botonBusquedaProducto").onclick = () => {
+        let filtro = document.getElementById("inputBusquedaProducto").value;
+        mostrarProductos(filtro);
+    }
+
+    mostrarProductos();
+}
+
+
 
 function cargarAnimacionOferta() {
     //Texto que parpadea
@@ -77,20 +104,26 @@ function cargarPantallaContactos() {
 // new WOW().init();
 window.onload = function (event) {
     // event.preventDefault();
-    bootbox.alert('¡Suscribite a nuestro newsletter!');
+    bootbox.alert({
+        message: '¡Suscribite a nuestro newsletter!',
+      className: 'rubberBand animated'
+    });
 
-    cargarProductos();
+    cargarPantallaProductos();
     cargarAnimacionOferta();
     cargarPantallaContactos();
 }
 
 
-function Producto(tipoDeProducto, nombre, precio, stock, imagen) {
-    this.tipoDeProducto = tipoDeProducto;
-    this.nombre = nombre;
-    this.precio = precio;
-    this.stock = stock;
-    this.imagen = imagen;
+class Producto {
+    constructor(tipoDeProducto, nombre, precio, stock, imagen) {
+
+        this.tipoDeProducto = tipoDeProducto;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+        this.imagen = imagen;
+    }
 }
 
 

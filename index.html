@@ -41,7 +41,6 @@
             <h1 class="text-center titulo mt-3">Jasmine</h1>
         </div>
     </div>
-
     <nav class="navbar navbar-expand-sm mt-3">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -96,6 +95,10 @@
     </section>
     <h2 class="text-center mt-5">Nuestros accesorios</h2>
     <div id="blink" class="text-center">Ofertas!</div>
+    <div class="d-flex justify-content-end">
+        <input type="text" id="inputBusquedaProducto" placeholder="Qué estás buscando?">
+        <button id="botonBusquedaProducto">Buscar</button>
+    </div>
     <div id="productos-section" class="container">
         <section class="mt-5">
             <div id="carrito" class="row">
@@ -160,8 +163,26 @@
                 </div>
 
             </section>
+            <div class="container">
+                <div class="newsletter js-rollover" data-radius="50">
+                    <svg viewBox="0 0 694 549" width="694" height="549">
+                        <path
+                            d="M74.7,439.6c58.9,76.3,152.2,113.1,224.6,109C585.8,532.3,734.2,295,684.7,94.2C658.7-11.3,508.1-8.6,433.6,9.8C384.1,22,329.1,47.8,277.8,60.4c-42.5,10.5-90,7.2-130.4,17.1C60.4,99-21.1,201.9,4.9,307.6C16.7,355.3,45.2,401.4,74.7,439.6z">
+                        </path>
+                    </svg>
+
+                    <h2 class="newsletter-title">¡Suscribite<br>a nuestro newsletter!</h2>
+                    <p class="newsletter-text">¡Registrate y enterate de nuestras promociones!</p>
+
+                    <form method="GET"  class="newsletter-form"
+                        target="_blank">
+                        <input type="email" name="EMAIL" id="email" placeholder="Tu e-mail" required>
+                        <button type="submit" class="button">Suscribite</button>
+                    </form>
+                </div>
+            </div>
             <!--Footer-->
-            <footer class="mt-5">
+            <footer>
                 <div class="py-12 bg-dark bg-cover-footer" style="background-image: url(imagenes/fondo-claro.jpg)">
                     <div class="container">
                         <div class="row">
@@ -185,6 +206,7 @@
                     </div>
                 </div>
             </footer>
+
 </body>
 
 </html>
