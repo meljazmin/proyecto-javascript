@@ -1,0 +1,69 @@
+<div>
+    <header>
+        <h1>Mis compras</h1>
+    </header>
+    <section class="row">
+        <table class="table table-striped col-8">
+            <thead>
+                <th></th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <% carrito.forEach((item)=>{ %>
+                    <tr>
+                        <td><img src="<%= item.imagen %>" alt="" style="width: 50px; height: 50px;" /></td>
+                        <td>
+                            <%= item.tipoDeProducto %>
+                                <%= item.nombre %>
+                        </td>
+                        <td>$<%= item.precio %>
+                        </td>
+                        <td>
+                            <%= item.cantidad %>
+                        </td>
+                        <td>$<%= item.cantidad * item.precio %>
+                        </td>
+                        <td>
+                            <button>
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <aside class="col-4">
+            <header>
+                <h6>RESUMEN DE COMPRA</h6>
+            </header>
+            <section>
+                <div>
+                    <p>
+                        Si tenés un código de descuento ingresalo haciendo
+                        <a class="btn sbtn-primary" data-toggle="collapse" href="#codigoDescuento" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            click aquí
+                        </a>
+                    </p>
+                    <div class="collapse" id="codigoDescuento">
+                        <p>Ingrese su código de descuento:</p>
+                        <input id="descuento" type="text" placeholder="Ingrese descuento" pattern="[A-Z]{6}[0-9]{4}">
+                        <button onclick="aplicarDescuento()">Aceptar</button>
+                    </div>
+                </div>
+                <div>Subtotal: $<%= carrito.reduce((acum, item)=> {
+                        acum+= item.precio*item.cantidad;
+                        return acum;
+                        }, 0) %></div>
+                <div>Total: $<%= carrito.reduce((acum, item)=> {
+                        acum+= item.precio*item.cantidad;
+                        return acum;
+                        }, 0) %></div>
+            </section>
+        </aside>
+    </section>
+</div>
