@@ -1,4 +1,4 @@
-<div>
+<div id="carrito-container">
     <header>
         <h1>Mis compras</h1>
     </header>
@@ -13,22 +13,22 @@
                 <th></th>
             </thead>
             <tbody>
-                <% carrito.forEach((item)=>{ %>
-                    <tr>
+                <% carrito.obtenerItems().forEach((item)=>{ %>
+                    <tr data-id="<%= item.id %>">
                         <td><img src="<%= item.imagen %>" alt="" style="width: 50px; height: 50px;" /></td>
                         <td>
                             <%= item.tipoDeProducto %>
                                 <%= item.nombre %>
                         </td>
-                        <td>$<%= item.precio %>
+                        <td><%= formateadorMoneda.format(item.precio) %>
                         </td>
                         <td>
                             <%= item.cantidad %>
                         </td>
-                        <td>$<%= item.cantidad * item.precio %>
+                        <td><%= formateadorMoneda.format(item.cantidad * item.precio) %>
                         </td>
                         <td>
-                            <button>
+                            <button onClick="eliminarItemCarrito(event)">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td>
@@ -55,14 +55,8 @@
                         <button onclick="aplicarDescuento()">Aceptar</button>
                     </div>
                 </div>
-                <div>Subtotal: $<%= carrito.reduce((acum, item)=> {
-                        acum+= item.precio*item.cantidad;
-                        return acum;
-                        }, 0) %></div>
-                <div>Total: $<%= carrito.reduce((acum, item)=> {
-                        acum+= item.precio*item.cantidad;
-                        return acum;
-                        }, 0) %></div>
+                <div>Subtotal: <%= formateadorMoneda.format(carrito.obtenerSubtotal()) %></div>
+                <div>Total: <%= formateadorMoneda.format(carrito.obtenerTotal()) %></div>
             </section>
         </aside>
     </section>

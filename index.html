@@ -32,6 +32,11 @@
     <!-- EJS -->
     <script src="https://unpkg.com/ejs@3.1.3/ejs.min.js" defer></script>
     <!--Javascript-->
+    <script src="js/Producto.js" defer></script>
+    <script src="js/Carrito.js" defer></script>
+    <script src="js/globales.js" defer></script>
+    <script src="js/productoUtils.js" defer></script>
+    <script src="js/carritoUtils.js" defer></script>
     <script src="js/main.js" defer></script>
 </head>
 <!--Navbar-->
@@ -44,7 +49,7 @@
             <h1 class="text-center titulo mt-3">Jasmine</h1>
         </div>
     </div>
-    <nav class="navbar navbar-expand-sm mt-3">
+    <nav class="navbar navbar-expand-sm mt-3 sticky-top">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#">Inicio</a>
@@ -128,123 +133,114 @@
                 </div>
             </div>
         </div>
-        <main>
-            <h2 class="text-center mt-5">Nuestros accesorios</h2>
-            <div id="blink" class="text-center">Ofertas!</div>
-            <div class="d-flex justify-content-end">
-                <input type="text" id="inputBusquedaProducto" placeholder="Qué estás buscando?">
-                <button id="botonBusquedaProducto">Buscar</button>
-            </div>
-            <div id="productos-section" class="container m-5">
-                <section class="mt-5">
-                    <div id="carrito" class="d-flex flex-wrap align-content-center justify-content-between">
-                </section>
-            </div>
-        </main>
-        <!--Sección de contacto-->
-        <section id="contacto">
-            <div class="container">
-                <div class="mb-5">
-                    <h1 class="text-center">Contacto</h1>
-                    <p class="text-center">Dejanos tu mensaje</p>
-                </div>
-                <form id="contactoForm">
-                    <fieldset>
-                        <legend>Tus datos</legend>
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input class="form-control" type="text" name="nombre" required maxlength="50"
-                                placeholder="Tu nombre" />
-                        </div>
-                        <div class="form-group">
-                            <label for="apellido">Apellido:</label>
-                            <input class="form-control" type="text" name="apellido" requited maxlength="50"
-                                placeholder="Tu apellido" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input class="form-control" type="email" name="email" placeholder="Tu email" />
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono:</label>
-                            <input class="form-control" type="number" name="telefono" placeholder="Tu teléfono" />
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje:</label>
-                            <textarea class="form-control" name="mensaje" rows="10" cols="70"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="acepta" value="1" />
-                                <label class="form-check-label" for="acepta">¿Deseas suscribirte a nuestro
-                                    newsletter?</label>
-                            </div>
-                        </div>
-                        <input type="submit" class="btn button2" value="Enviar formulario" id="enviar" />
-                        <input type="reset" class="btn button2" value="Limpiar formulario" />
-                    </fieldset>
-                </form>
-            </div>
-        </section>
-        <!--Newsletter-->
+    </section>
+    <main>
+        <h2 class="text-center mt-5">Nuestros accesorios</h2>
+        <div id="blink" class="text-center">Ofertas!</div>
+        <div class="d-flex justify-content-end">
+            <input type="text" id="inputBusquedaProducto" placeholder="Qué estás buscando?">
+            <button id="botonBusquedaProducto">Buscar</button>
+        </div>
+        <div id="productos-section" class="container m-5">
+            <section class="mt-5">
+                <div id="carrito" class="d-flex flex-wrap align-content-center justify-content-between">
+            </section>
+        </div>
+    </main>
+    <!--Sección de contacto-->
+    <section id="contacto">
         <div class="container">
-            <div class="newsletter js-rollover" data-radius="50">
-                <svg viewBox="0 0 694 549" width="694" height="549">
-                    <path
-                        d="M74.7,439.6c58.9,76.3,152.2,113.1,224.6,109C585.8,532.3,734.2,295,684.7,94.2C658.7-11.3,508.1-8.6,433.6,9.8C384.1,22,329.1,47.8,277.8,60.4c-42.5,10.5-90,7.2-130.4,17.1C60.4,99-21.1,201.9,4.9,307.6C16.7,355.3,45.2,401.4,74.7,439.6z">
-                    </path>
-                </svg>
-                <h2 class="newsletter-title">¡Suscribite<br>a nuestro newsletter!</h2>
-                <p class="newsletter-text">¡Registrate y enterate de nuestras promociones!</p>
+            <div class="mb-5">
+                <h1 class="text-center">Contacto</h1>
+                <p class="text-center">Dejanos tu mensaje</p>
+            </div>
+            <form id="contactoForm">
+                <fieldset>
+                    <legend>Tus datos</legend>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input class="form-control" type="text" name="nombre" required maxlength="50"
+                            placeholder="Tu nombre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input class="form-control" type="text" name="apellido" requited maxlength="50"
+                            placeholder="Tu apellido" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input class="form-control" type="email" name="email" placeholder="Tu email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input class="form-control" type="number" name="telefono" placeholder="Tu teléfono" />
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea class="form-control" name="mensaje" rows="10" cols="70"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="acepta" value="1" />
+                            <label class="form-check-label" for="acepta">¿Deseas suscribirte a nuestro
+                                newsletter?</label>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn button2" value="Enviar formulario" id="enviar" />
+                    <input type="reset" class="btn button2" value="Limpiar formulario" />
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <!--Newsletter-->
+    <div class="container">
+        <div class="newsletter js-rollover" data-radius="50">
+            <svg viewBox="0 0 694 549" width="694" height="549">
+                <path
+                    d="M74.7,439.6c58.9,76.3,152.2,113.1,224.6,109C585.8,532.3,734.2,295,684.7,94.2C658.7-11.3,508.1-8.6,433.6,9.8C384.1,22,329.1,47.8,277.8,60.4c-42.5,10.5-90,7.2-130.4,17.1C60.4,99-21.1,201.9,4.9,307.6C16.7,355.3,45.2,401.4,74.7,439.6z">
+                </path>
+            </svg>
+            <h2 class="newsletter-title">¡Suscribite<br>a nuestro newsletter!</h2>
+            <p class="newsletter-text">¡Registrate y enterate de nuestras promociones!</p>
 
-                <form method="GET" class="newsletter-form" target="_blank">
-                    <input type="email" name="EMAIL" id="email" placeholder="Tu e-mail" required>
-                    <button type="submit" class="button">Suscribite</button>
-                </form>
+            <form method="GET" class="newsletter-form" target="_blank">
+                <input type="email" name="EMAIL" id="email" placeholder="Tu e-mail" required>
+                <button type="submit" class="button">Suscribite</button>
+            </form>
+        </div>
+    </div>
+    <!--Footer-->
+    <footer class="d-flex justify-content-around">
+        <div class="p-2">
+            <a class="text-gray-300" href="index.html">
+                <h2 class="cc_pointer">Jasmine</h2>
+            </a>
+            <ul class="mb-7">
+                <li class="item px-3">
+                    <a href="#contacto">Contactanos</a>
+                </li>
+                <li class="item px-3">
+                    <a href="#productos-section">Nuestros productos</a>
+                </li>
+                <li class="item px-3">
+                    <a href="#">Quienes somos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="p-2">
+            <h2>Contacto</h2>
+            <div><i class="fas fa-phone-alt"></i><br>+54 9 1556967705</div>
+            <div><i class="fas fa-envelope"></i><br>jasmine-accesorios@gmail.com</div>
+        </div>
+        <div class="p-2">
+            <h2>Seguinos!</h2><br>
+            <div class="d-flex flex-row justify-content-around">
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
             </div>
         </div>
-        <!--Footer-->
-        <footer class="d-flex justify-content-around">
-            <div class="p-2">
-                <a class="text-gray-300" href="index.html">
-                    <h2 class="cc_pointer">Jasmine</h2>
-                </a>
-                <ul class="mb-7">
-                    <li class="item px-3">
-                        <a href="#contacto">Contactanos</a>
-                    </li>
-                    <li class="item px-3">
-                        <a href="#productos-section">Nuestros productos</a>
-                    </li>
-                    <li class="item px-3">
-                        <a href="#">Quienes somos</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="p-2">
-                <h2>Contacto</h2>
-                <div><i class="fas fa-phone-alt"></i><br>+54 9 1556967705</div>
-                <div><i class="fas fa-envelope"></i><br>jasmine-accesorios@gmail.com</div>
-            </div>
-            <div class="p-2">
-                <h2>Seguinos!</h2><br>
-                <div class="d-flex flex-row justify-content-around">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                </div>
-            </div>
-        </footer>
-                    <!-- <div class="col-auto">
-                        <img class="footer-payment" src="imagenes/mastercard.svg" alt="MasterCard">
-                        <img class="footer-payment" src="imagenes/mercadopago.png" alt="Visa">
-                        <img class="footer-payment" src="imagenes/visa.svg" alt="Maestro">
-                        <img class="footer-payment" src="imagenes/maestro.svg" alt="MercadoPago">
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
+    </footer>
 </body>
 
 </html>
