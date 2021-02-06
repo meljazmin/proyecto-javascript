@@ -23,7 +23,7 @@ input {
     border: 2px solid #cccccc;
 }
 
-.titulo, h1, h2, p {
+.titulo, h1, h2, h3, h4, h5, h6, p {
     font-family: 'Quicksand', sans-serif;
     color: #a658af;
     font-weight: bolder;
@@ -247,3 +247,11 @@ a:hover {
     font-size: 14px;
 }
 
+.producto-card .producto-card-title {
+    height: 50px;
+    font-size: 1.5em;
+}
+
+.card-text{
+    font-size: 2em;
+}

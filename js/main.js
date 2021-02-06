@@ -99,7 +99,7 @@ window.onload = function (event) {
                             className: 'buttonLimpiarCarrito',
                             callback: function () {
                                 bootbox.confirm('¿De verdad desea borrar todos los items del carrito?', () => {
-                                    carritoManager.limpiarCarrito();
+                                    limpiarCarrito();
                                 });
                             }
                         }

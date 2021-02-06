@@ -7,10 +7,10 @@ var formateadorMoneda = new Intl.NumberFormat("es-AR", {
 
 var carritoDialog;
 
-var carritoManager = new Carrito();
+var  carritoManager = new Carrito();
 
 var CARRITO_CHANGED_EVENT_NAME = 'carritoChanged';
-
+//Función que dispara un evento
 function triggerCustomEvent(eventName, data = null) {
     var customEvent = new CustomEvent(eventName, { detail: data });
     window.dispatchEvent(customEvent);
