@@ -28,10 +28,10 @@ function cargarProductos() {
     productosObjeto.push(new Producto(18, "Set extensiones de pelo", "Azul", 700, 50, 'imagenes/extension-azul.jpg'));
     productosObjeto.push(new Producto(19, "Antifaz", "Estrellas", 300, 50, 'imagenes/antifaz-estrellas.jpg'));
     productosObjeto.push(new Producto(20, "Antifaz", "Ojos", 300, 50, 'imagenes/antifaz-ojos.jpg'));
-    productosObjeto.push(new Producto(21, "Antifaz", "Gatito", 300, 50, 'imagenes/antifaz-gato.jpg'));    
-    productosObjeto.push(new Producto(22, "Llavero", "Jasmine", 350, 80, 'imagenes/llavero-jasmine.jpg'));    
-    productosObjeto.push(new Producto(23, "Llavero", "Mariposa", 350, 80, 'imagenes/llavero-mariposa.jpg'));    
-    productosObjeto.push(new Producto(24, "Llavero", "Flores", 350, 80, 'imagenes/llavero-flores.jpg'));    
+    productosObjeto.push(new Producto(21, "Antifaz", "Gatito", 300, 50, 'imagenes/antifaz-gato.jpg'));
+    productosObjeto.push(new Producto(22, "Llavero", "Jasmine", 350, 80, 'imagenes/llavero-jasmine.jpg'));
+    productosObjeto.push(new Producto(23, "Llavero", "Mariposa", 350, 80, 'imagenes/llavero-mariposa.jpg'));
+    productosObjeto.push(new Producto(24, "Llavero", "Flores", 350, 80, 'imagenes/llavero-flores.jpg'));
 
 }
 
@@ -52,20 +52,20 @@ function mostrarProductos(filtro) {
     }
 
     //Recorriendo lista de productos
-    const carritoDiv = document.getElementById("carrito");
-    carritoDiv.innerHTML = "";
+    const $carritoDiv = $("#carrito");
+    $carritoDiv.empty();
     for (let i = 0; i < listaProductos.length; i++) {
         let producto = listaProductos[i];
-        carritoDiv.innerHTML += `
+        $carritoDiv.append(`
          <div data-id="${producto.id}" class="producto-card card m-1" style="width: 18rem;">
-             <img class="card-img-top producto-img" src="${producto.imagen}" alt="${producto.tipoDeProducto} ${producto.nombre}" title="${producto.nombre}" />
+             <img class="card-img-top producto-img" src="${producto.imagen}" alt="${producto.tipoDeProducto} ${producto.nombre}" title=" ${producto.tipoDeProducto} ${producto.nombre}" />
              <div class="card-body">
                 <p class="card-title producto-card-title">${producto.tipoDeProducto} ${producto.nombre}</p>
                 <p class="card-text">${formateadorMoneda.format(producto.precio)}</p>
                 <button class="btn btn-block buttonAgregarCarrito" onClick="agregarAlCarrito(event)"><i class="fas fa-plus"></i></button>
              </div>
          </div>
-         `;
+         `);
     }
 }
 
@@ -75,10 +75,12 @@ function mostrarProductos(filtro) {
 function cargarPantallaProductos() {
     cargarProductos();
 
-    document.getElementById("botonBusquedaProducto").onclick = () => {
+    $("#botonBusquedaProducto").click(() => {
         let filtro = document.getElementById("inputBusquedaProducto").value;
         mostrarProductos(filtro);
-    }
-
+    });
+  
     mostrarProductos();
 }
+
+

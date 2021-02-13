@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasmine | Accesorios</title>
+    <!-- <link rel="icon" href="../favicon.ico" type="image/x-icon"> -->
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--Animate.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="/css/themify-icons.css">
+    <!--Estilos CSS-->
+    <link rel="stylesheet" href="/css/style.css">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"
+        defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"
+        defer></script>
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/7d5dbf8fc4.js" crossorigin="anonymous" defer></script>
+    <!--WOW.js-->
+    <script src="https://cdn.boomcdn.com/libs/wow-js/1.3.0/wow.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js" defer></script>
+    <!-- EJS -->
+    <!-- <script src="https://unpkg.com/ejs@3.1.3/ejs.min.js" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"
+        integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw=="
+        crossorigin="anonymous" defer></script>
+    <!--Javascript-->
+    <script src="/js/Producto.js" defer></script>
+    <script src="/js/Carrito.js" defer></script>
+    <script src="/js/globales.js" defer></script>
+    <script src="/js/productoUtils.js" defer></script>
+    <script src="/js/carritoUtils.js" defer></script>
+    <script src="/js/carritoIndex.js" defer></script>
+</head>
+<!--Navbar-->
+
+<body class="animate__animated animate__fadeIn">
+    <div class="container sticky-top">
+        <a href="/" class="d-flex p-2" id="logo">
+            <!--Icono de Freepik-->
+            <img src="/imagenes/logo-jasmine.png" />
+            <h1 class="text-center titulo mt-3">Jasmine</h1>
+        </a>
+    </div>
+    <div class="container" id="carrito-container">
+        <header>
+            <h1>Mis compras</h1>
+        </header>
+        <section class="row">
+            <table class="table table-striped col-8 text-center">
+                <thead>
+                    <th></th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Descuento</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </thead>
+                <tbody id="item-container">
+
+                </tbody>
+            </table>
+            <aside class="col-4">
+                <header>
+                    <h6>RESUMEN DE COMPRA</h6>
+                </header>
+                <section>
+                    <div>
+                        <p>
+                            Si tenés un código de descuento ingresalo haciendo
+                            <a class="btn sbtn-primary" data-toggle="collapse" href="#codigoDescuento" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                click aquí
+                            </a>
+                        </p>
+                        <div class="collapse" id="codigoDescuento">
+                            <p>Ingrese su código de descuento:</p>
+                            <input id="descuento" type="text" placeholder="Ingrese descuento"
+                                pattern="[A-Z]{6}[0-9]{4}">
+                            <button onclick="aplicarDescuento()">Aceptar</button>
+                        </div>
+                    </div>
+                    <p>Subtotal: <span id="subtotal-span"></span></p>
+                    <p>Total: <span id="total-span"></span></p>
+                </section>
+                <section>
+                    <button class="btn btn-primary buttonAgregarCarrito">Comprar</button>
+                    <button class="btn btn-secondary buttonLimpiarCarrito">Limpiar</button>
+                </section>
+            </aside>
+        </section>
+    </div>
+</body>
+
+</html>

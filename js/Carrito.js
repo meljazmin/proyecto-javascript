@@ -16,7 +16,7 @@ class Carrito {
 
     agregarItem(item) {
         const items = this.obtenerItems();
-        const indexItem = items.findIndex(i => item.id === i.id)
+        const indexItem = items.findIndex(i => item.id === i.id);
         if (indexItem > -1) {
             items[indexItem].cantidad++;
         } else {
@@ -46,6 +46,9 @@ class Carrito {
     obtenerSubtotal() {
         return this.obtenerItems().reduce((acum, item) => {
             acum += item.precio * item.cantidad;
+            if (item.porcentajeDescuento) {
+                acum = acum - acum * item.descuentoPorcentaje / 100;
+            }
             return acum;
         }, 0);
     }
@@ -55,5 +58,9 @@ class Carrito {
         if (this.descuento > 0)
             total = total - (total * this.descuento / 100)
         return total;
+    }
+
+    setDescuento(){
+
     }
 }

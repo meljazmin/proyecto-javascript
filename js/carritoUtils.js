@@ -1,21 +1,3 @@
-// Evento personalizado para actualizar pantalla cuando el carrito cambia de estado
-onCarritoChanged((evt) => {
-    const item = evt.detail;
-    const items = carritoManager.obtenerItems();
-    document.getElementById('carritoCountSpan').innerText = items.reduce((acum, item) => {
-        acum += item.cantidad;
-        return acum;
-    }, 0);
-
-    if (item && item.id) {
-        $('#carrito-container').find(`tr[data-id="${item.id}"`).remove();
-    }
-
-    if (items.length === 0 && carritoDialog) {
-        carritoDialog.modal('hide');
-    }
-});
-
 /**
  * Funcion para agregar el producto seleccionado al carrito
  * @param {*} evt contexto del evento accionado 
@@ -45,7 +27,22 @@ function eliminarItemCarrito(evt) {
     triggerCarritoChanged(item);
 }
 
+function irAlCarrito() {
+    if (!carritoManager) throw Error('No existe carritoManager');
+    if (carritoManager.obtenerItems().length === 0) return;
+
+    // bootbox.alert(`Hay ${carritoArr.length} productos en el carrito`);
+    location.href = '/pages/carrito';
+}
+
 function limpiarCarrito() {
     carritoManager.limpiarCarrito();
     triggerCarritoChanged();
+}
+
+function comprar() {
+    const items = carritoManager.obtenerItems();
+    if (items && items.length > 0) {
+        alert('Comprar');
+    }
 }

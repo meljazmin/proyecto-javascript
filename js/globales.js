@@ -7,7 +7,7 @@ var formateadorMoneda = new Intl.NumberFormat("es-AR", {
 
 var carritoDialog;
 
-var  carritoManager = new Carrito();
+var carritoManager = new Carrito();
 
 var CARRITO_CHANGED_EVENT_NAME = 'carritoChanged';
 //Función que dispara un evento
@@ -21,7 +21,10 @@ function triggerCarritoChanged(data = null) {
 }
 
 function onCarritoChanged(callback) {
-    window.addEventListener(CARRITO_CHANGED_EVENT_NAME, (evt) => {
+    // window.addEventListener(CARRITO_CHANGED_EVENT_NAME, (evt) => {
+    //     callback(evt);
+    // });
+    $(window).on(CARRITO_CHANGED_EVENT_NAME, (evt) => {
         callback(evt);
     });
 }

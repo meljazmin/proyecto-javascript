@@ -30,7 +30,10 @@
     <script src="https://cdn.boomcdn.com/libs/wow-js/1.3.0/wow.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js" defer></script>
     <!-- EJS -->
-    <script src="https://unpkg.com/ejs@3.1.3/ejs.min.js" defer></script>
+    <!-- <script src="https://unpkg.com/ejs@3.1.3/ejs.min.js" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"
+        integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw=="
+        crossorigin="anonymous" defer></script>
     <!--Javascript-->
     <script src="js/Producto.js" defer></script>
     <script src="js/Carrito.js" defer></script>
@@ -58,7 +61,7 @@
                 <a class="nav-link" href="#productos-section">Productos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Quienes Somos</a>
+                <a class="nav-link" href="#quienesSomos">Quienes Somos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#contacto">Contacto</a>
@@ -134,19 +137,52 @@
             </div>
         </div>
     </section>
-    <main>
+    <main id="productos-section">
         <h2 class="text-center mt-5">Nuestros accesorios</h2>
         <div id="blink" class="text-center">Ofertas!</div>
         <div class="d-flex justify-content-end">
             <input type="text" id="inputBusquedaProducto" placeholder="Qué estás buscando?">
             <button id="botonBusquedaProducto">Buscar</button>
         </div>
-        <div id="productos-section" class="container m-5">
+        <div class="container m-5">
             <section class="mt-5">
-                <div id="carrito" class="d-flex flex-wrap align-content-center justify-content-between">
+                <div id="carrito" class="d-flex flex-wrap align-content-center justify-content-around">
             </section>
         </div>
     </main>
+    <!--Sección de Quienes Somos-->
+    <section id="quienesSomos">
+        <div class="container">
+            <div class="mb-5 row">
+                <div class="col-md-6">
+                    <h1 class="text-center mb-5">Quienes somos</h1>
+                    <div class="d-flex justify-content-center mb-5" id="logo">
+                        <!--Icono de Freepik-->
+                        <img src="imagenes/logo-jasmine.png" />
+                    </div>
+                    <p class="text-center">
+                        En 2014 nace en Argentina Jasmine, una empresa familiar dedicada a la producción y venta de
+                        accesorios para una mujer joven y dueña de su propio estilo.
+
+                        En Jasmine apostamos a conocer a nuestras clientas, mujeres jóvenes, divertidas y ávidas de
+                        tendencia, ofreciéndoles los accesorios para destacar su personalidad y potenciar su actitud, e
+                        invitándolas a imaginar y crear su estilo único, original y actualizado según las últimas
+                        tendencias
+                        del mundo de la moda.
+
+                        Por eso trabajamos para brindarle una variedad de estilos para cada gusto particular.</p>
+                    </p>
+                </div>
+                <div class="col-md-6 mt-auto mb-auto">
+                    <div class="image-quienes-somos">
+                        <img src="imagenes/imagen-quienes-somos.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
     <!--Sección de contacto-->
     <section id="contacto">
         <div class="container">
