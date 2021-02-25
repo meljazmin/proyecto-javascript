@@ -22,6 +22,9 @@ input {
     border-radius: 20px;
     border: 2px solid #cccccc;
 }
+input:hover{
+    color: #e0aaca;
+}
 
 .titulo, h1, h2, h3, h4, h5, h6, p {
     font-family: 'Quicksand', sans-serif;
@@ -69,6 +72,8 @@ footer {
     margin-top: 200px;
     display: flex;
     flex-direction: row;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold; 
 }
 
 footer h2 {
@@ -186,6 +191,8 @@ a:hover {
 #contacto {
     background-image: url('/imagenes/white-background-vines.jpg');
     background-size: cover;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 .carousel-item img {

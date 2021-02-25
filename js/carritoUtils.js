@@ -43,6 +43,12 @@ function limpiarCarrito() {
 function comprar() {
     const items = carritoManager.obtenerItems();
     if (items && items.length > 0) {
-        alert('Comprar');
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Compra realizada',
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
 }

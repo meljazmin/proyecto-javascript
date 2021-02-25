@@ -1,0 +1,218 @@
+[
+    {
+        "id": 1,
+        "tipoDeProducto": "Moño",
+        "nombre": "Rojo",
+        "precio": 150,
+        "stock": 100,
+        "imagen": "imagenes/moño-rojo.jpg",
+        "descuentoPorcentaje": 50
+    },
+    {
+        "id": 2,
+        "tipoDeProducto": "Moño",
+        "nombre": "Rosa",
+        "precio": 150,
+        "stock": 100,
+        "imagen": "imagenes/moño-rosa.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 3,
+        "tipoDeProducto": "Moño",
+        "nombre": "Dorado",
+        "precio": 250,
+        "stock": 80,
+        "imagen": "imagenes/moño-dorado.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 4,
+        "tipoDeProducto": "Collar",
+        "nombre": "Moon",
+        "precio": 450,
+        "stock": 80,
+        "imagen": "imagenes/collar-moon.webp",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 5,
+        "tipoDeProducto": "Collar",
+        "nombre": "Místico",
+        "precio": 500,
+        "stock": 70,
+        "imagen": "imagenes/collar-mistico.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 6,
+        "tipoDeProducto": "Collar",
+        "nombre": "Víbora",
+        "precio": 700,
+        "stock": 60,
+        "imagen": "imagenes/snake-necklace.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 7,
+        "tipoDeProducto": "Mochila",
+        "nombre": "Rosa",
+        "precio": 2300,
+        "stock": 50,
+        "imagen": "imagenes/mochila-rosa.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 8,
+        "tipoDeProducto": "Mochila",
+        "nombre": "Conejito",
+        "precio": 2400,
+        "stock": 40,
+        "imagen": "imagenes/mochila-conejito.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 9,
+        "tipoDeProducto": "Anillo",
+        "nombre": "Diamantes",
+        "precio": 1000,
+        "stock": 90,
+        "imagen": "imagenes/anillo-diamante.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 10,
+        "tipoDeProducto": "Anillo",
+        "nombre": "Oro",
+        "precio": 6000,
+        "stock": 40,
+        "imagen": "imagenes/anillo-oro.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 11,
+        "tipoDeProducto": "Anillo",
+        "nombre": "Plata",
+        "precio": 3000,
+        "stock": 30,
+        "imagen": "imagenes/anillo-plata.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 12,
+        "tipoDeProducto": "Anillo",
+        "nombre": "Amatista",
+        "precio": 3000,
+        "stock": 30,
+        "imagen": "imagenes/anillo-amatista.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 13,
+        "tipoDeProducto": "Cubreboca",
+        "nombre": "Lunares",
+        "precio": 199,
+        "stock": 90,
+        "imagen": "imagenes/cubreboca-lunares.webp",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 14,
+        "tipoDeProducto": "Cubreboca",
+        "nombre": "Multicolor",
+        "precio": 199,
+        "stock": 90,
+        "imagen": "imagenes/cubrebocas-multicolor.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 15,
+        "tipoDeProducto": "Cubreboca",
+        "nombre": "Rosa",
+        "precio": 199,
+        "stock": 90,
+        "imagen": "imagenes/cubreboca-rosa.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 16,
+        "tipoDeProducto": "Extension de pelo",
+        "nombre": "Multicolor",
+        "precio": 399,
+        "stock": 50,
+        "imagen": "imagenes/hair-extension.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 17,
+        "tipoDeProducto": "Set extensiones de pelo",
+        "nombre": "Multicolor",
+        "precio": 700,
+        "stock": 50,
+        "imagen": "imagenes/set-extensiones.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 18,
+        "tipoDeProducto": "Set extensiones de pelo",
+        "nombre": "Azul",
+        "precio": 700,
+        "stock": 50,
+        "imagen": "imagenes/extension-azul.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 19,
+        "tipoDeProducto": "Antifaz",
+        "nombre": "Estrellas",
+        "precio": 300,
+        "stock": 50,
+        "imagen": "imagenes/antifaz-estrellas.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 20,
+        "tipoDeProducto": "Antifaz",
+        "nombre": "Ojos",
+        "precio": 300,
+        "stock": 50,
+        "imagen": "imagenes/antifaz-ojos.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 21,
+        "tipoDeProducto": "Antifaz",
+        "nombre": "Gatito",
+        "precio": 300,
+        "stock": 50,
+        "imagen": "imagenes/antifaz-gato.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 22,
+        "tipoDeProducto": "Llavero",
+        "nombre": "Jasmine",
+        "precio": 350,
+        "stock": 80,
+        "imagen": "imagenes/llavero-jasmine.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 23,
+        "tipoDeProducto": "Llavero",
+        "nombre": "Mariposa",
+        "precio": 350,
+        "stock": 80,
+        "imagen": "imagenes/llavero-mariposa.jpg",
+        "descuentoPorcentaje": 0
+    },
+    {
+        "id": 24,
+        "tipoDeProducto": "Llavero",
+        "nombre": "Flores",
+        "precio": 350,
+        "stock": 80,
+        "imagen": "imagenes/llavero-flores.jpg",
+        "descuentoPorcentaje": 0
+    }
+]

@@ -42,10 +42,12 @@ function cargarPantallaContactos() {
 // ACA ARRANCA LA WEBAPP
 window.onload = function (event) {
     // event.preventDefault();
-    bootbox.alert({
-        message: '¡Suscribite a nuestro newsletter!',
-        className: 'rubberBand animated'
-    });
+    // bootbox.alert({
+    //     message: '¡Suscribite a nuestro newsletter!',
+    //     className: 'rubberBand animated'
+    // });
+
+
 
     triggerCarritoChanged();
 
@@ -61,3 +63,5 @@ window.onload = function (event) {
         }
     }
 }
+
+ScrollReveal().reveal('body');
