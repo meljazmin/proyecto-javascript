@@ -63,5 +63,3 @@ window.onload = function (event) {
         }
     }
 }
-
-ScrollReveal().reveal('body');

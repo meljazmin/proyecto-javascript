@@ -37,6 +37,7 @@
     <!--Javascript-->
     <script src="/js/Producto.js" defer></script>
     <script src="/js/Carrito.js" defer></script>
+    <script src="/js/LoadingService.js" defer></script>
     <script src="/js/globales.js" defer></script>
     <script src="/js/productoUtils.js" defer></script>
     <script src="/js/carritoUtils.js" defer></script>
@@ -44,8 +45,8 @@
 </head>
 <!--Navbar-->
 
-<body class="animate__animated animate__fadeIn">
-    <div class="container sticky-top">
+<body class="animate__animated animate__fadeIn index-carrito">
+    <div class="container">
         <a href="/" class="d-flex p-2" id="logo">
             <!--Icono de Freepik-->
             <img src="/imagenes/logo-jasmine.png" />
@@ -57,7 +58,7 @@
             <h1>Mis compras</h1>
         </header>
         <section class="row">
-            <table class="table table-striped col-8 text-center">
+            <table class="table tabla-productos col-8 text-center">
                 <thead>
                     <th></th>
                     <th>Producto</th>

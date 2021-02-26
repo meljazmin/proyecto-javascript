@@ -9,7 +9,15 @@ function agregarAlCarrito(evt) {
     const producto = productosObjeto.find(producto => producto.id === idProducto);
     if (producto) {
         agregarItemAlCarrito(producto);
-        // bootbox.alert(`Se agregó ${producto.tipoDeProducto} ${producto.nombre} al carrito`);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `Agregaste 1 ${producto.tipoDeProducto} ${producto.nombre} al carrito de compras!`,
+            showConfirmButton: true,
+            timer: 4000
+        });
+
+
     } else {
         bootbox.alert(`Ha ocurrido un error: No se encontro el producto con id ${idProducto}`);
     }
@@ -46,6 +54,7 @@ function comprar() {
         Swal.fire({
             position: 'center',
             icon: 'success',
+            className: "swal-fire",
             title: 'Compra realizada',
             showConfirmButton: false,
             timer: 1500

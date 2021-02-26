@@ -12,23 +12,26 @@ function cargarProductos() {
 
         // mostrar componente loading
         // $("#loading").show()
+        LoadingService.showLoading();
         // llamada a servicio
-        $.ajax({
-            url: "/api/productos.json",
-            contentType: "application/json"
-        }).done(function (data) {
-            // si está OK
-            productosObjeto = data;
-            resolve();
-        }).fail(function (xhr, err, error) {
-            // si no está OK
-            alert(`Ha ocurrido un error ${err}`);
-            reject();
-        }).always(function () {
-            // esto se ejecuta siempre
-            // ocultar loading
-            // $("#loading").hide();
-        });
+            $.ajax({
+                url: "/api/productos.json",
+                contentType: "application/json"
+            }).done(function (data) {
+                // si está OK
+                productosObjeto = data;
+                resolve();
+            }).fail(function (xhr, err, error) {
+                // si no está OK
+                alert(`Ha ocurrido un error ${err}`);
+                reject();
+            }).always(function () {
+                // esto se ejecuta siempre
+                // ocultar loading
+                // $("#loading").hide();
+                LoadingService.hideLoading();
+            });
+        
     });
 }
 
@@ -77,7 +80,7 @@ function cargarPantallaProductos() {
         mostrarProductos(filtro);
     });
 
-    cargarProductos().then(()=>{
+    cargarProductos().then(() => {
         mostrarProductos();
     });
 }
