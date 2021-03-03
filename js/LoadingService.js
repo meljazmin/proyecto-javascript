@@ -1,6 +1,9 @@
 let loading;
 
-$.get('/pages/common/loading.html').done(data => {
+$.ajax({
+    url: '/pages/common/loading.html',
+    async: false
+}).done(data => {
     loading = $(data);
 }).fail((xhr, err, thrown) => {
     console.warn('No se pudo obtener el loading.html', err);
@@ -16,7 +19,7 @@ const LoadingService = {
     hideLoading: () => {
         loading.animate({
             opacity: 0
-        }, 500, ()=>{
+        }, 500, () => {
             loading.remove();
         });
         $('body').css('overflow', 'auto');

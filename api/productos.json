@@ -15,7 +15,7 @@
         "precio": 150,
         "stock": 100,
         "imagen": "imagenes/moño-rosa.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 5
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "precio": 250,
         "stock": 80,
         "imagen": "imagenes/moño-dorado.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 5
     },
     {
         "id": 4,
@@ -51,7 +51,7 @@
         "precio": 700,
         "stock": 60,
         "imagen": "imagenes/snake-necklace.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 20
     },
     {
         "id": 7,
@@ -60,7 +60,7 @@
         "precio": 2300,
         "stock": 50,
         "imagen": "imagenes/mochila-rosa.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 20
     },
     {
         "id": 8,
@@ -105,7 +105,7 @@
         "precio": 3000,
         "stock": 30,
         "imagen": "imagenes/anillo-amatista.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 20
     },
     {
         "id": 13,
@@ -132,7 +132,7 @@
         "precio": 199,
         "stock": 90,
         "imagen": "imagenes/cubreboca-rosa.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 20
     },
     {
         "id": 16,
@@ -159,7 +159,7 @@
         "precio": 700,
         "stock": 50,
         "imagen": "imagenes/extension-azul.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 10
     },
     {
         "id": 19,
@@ -168,7 +168,7 @@
         "precio": 300,
         "stock": 50,
         "imagen": "imagenes/antifaz-estrellas.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 20
     },
     {
         "id": 20,
@@ -177,7 +177,7 @@
         "precio": 300,
         "stock": 50,
         "imagen": "imagenes/antifaz-ojos.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 30
     },
     {
         "id": 21,
@@ -204,7 +204,7 @@
         "precio": 350,
         "stock": 80,
         "imagen": "imagenes/llavero-mariposa.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 20
     },
     {
         "id": 24,
@@ -213,6 +213,6 @@
         "precio": 350,
         "stock": 80,
         "imagen": "imagenes/llavero-flores.jpg",
-        "descuentoPorcentaje": 0
+        "descuentoPorcentaje": 10
     }
 ]

@@ -14,24 +14,24 @@ function cargarProductos() {
         // $("#loading").show()
         LoadingService.showLoading();
         // llamada a servicio
-            $.ajax({
-                url: "/api/productos.json",
-                contentType: "application/json"
-            }).done(function (data) {
-                // si está OK
-                productosObjeto = data;
-                resolve();
-            }).fail(function (xhr, err, error) {
-                // si no está OK
-                alert(`Ha ocurrido un error ${err}`);
-                reject();
-            }).always(function () {
-                // esto se ejecuta siempre
-                // ocultar loading
-                // $("#loading").hide();
-                LoadingService.hideLoading();
-            });
-        
+        $.ajax({
+            url: "/api/productos.json",
+            contentType: "application/json"
+        }).done(function (data) {
+            // si está OK
+            productosObjeto = data;
+            resolve();
+        }).fail(function (xhr, err, error) {
+            // si no está OK
+            alert(`Ha ocurrido un error ${err}`);
+            reject();
+        }).always(function () {
+            // esto se ejecuta siempre
+            // ocultar loading
+            // $("#loading").hide();
+            LoadingService.hideLoading();
+        });
+
     });
 }
 
@@ -60,15 +60,18 @@ function mostrarProductos(filtro) {
         let producto = listaProductos[i];
         $carritoDiv.append(`
          <div data-id="${producto.id}" class="producto-card card m-1" style="width: 18rem;">
-             <img class="card-img-top producto-img" src="${producto.imagen}" alt="${producto.tipoDeProducto} ${producto.nombre}" title=" ${producto.tipoDeProducto} ${producto.nombre}" />
+             <img class="card-img-top producto-img w3-hover-opacity" src="${producto.imagen}" alt="${producto.tipoDeProducto} ${producto.nombre}" title=" ${producto.tipoDeProducto} ${producto.nombre}" />
              <div class="card-body">
                 <p class="card-title producto-card-title">${producto.tipoDeProducto} ${producto.nombre}</p>
-                <p class="card-text">${formateadorMoneda.format(producto.precio)}</p>
+                <label class="card-text" style="${producto.descuentoPorcentaje > 0 ? "text-decoration:line-through;" : ""}">${formateadorMoneda.format(producto.precio)}</label>
+                <label class="card-text" style="${producto.descuentoPorcentaje > 0 ? "display: inline-block;" : "display: none;"}">${formateadorMoneda.format(producto.precio - (producto.precio * producto.descuentoPorcentaje / 100))}</label>
                 <button class="btn btn-block buttonAgregarCarrito" onClick="agregarAlCarrito(event)"><i class="fas fa-plus"></i></button>
              </div>
          </div>
          `);
     }
+
+    scrollReveal.reveal('.producto-card', { reset: true, delay: 100 });
 }
 
 /**

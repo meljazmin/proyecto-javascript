@@ -12,9 +12,13 @@ function agregarAlCarrito(evt) {
         Swal.fire({
             position: 'center',
             icon: 'success',
+            iconColor: "#bd819c",
             title: `Agregaste 1 ${producto.tipoDeProducto} ${producto.nombre} al carrito de compras!`,
+            fontSize: "10px",
+            width: "400px",
             showConfirmButton: true,
-            timer: 4000
+            confirmButtonColor: "#bd819c",
+            confirmButtonPositon: 'right'
         });
 
 
@@ -39,7 +43,6 @@ function irAlCarrito() {
     if (!carritoManager) throw Error('No existe carritoManager');
     if (carritoManager.obtenerItems().length === 0) return;
 
-    // bootbox.alert(`Hay ${carritoArr.length} productos en el carrito`);
     location.href = '/pages/carrito';
 }
 
@@ -51,13 +54,8 @@ function limpiarCarrito() {
 function comprar() {
     const items = carritoManager.obtenerItems();
     if (items && items.length > 0) {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            className: "swal-fire",
-            title: 'Compra realizada',
-            showConfirmButton: false,
-            timer: 1500
-        });
+    //    location.
     }
 }
+
+

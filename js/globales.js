@@ -5,6 +5,8 @@ var formateadorMoneda = new Intl.NumberFormat("es-AR", {
     maximumFractionDigits: 2
 });
 
+var scrollReveal = ScrollReveal();
+
 var carritoDialog;
 
 var carritoManager = new Carrito();
