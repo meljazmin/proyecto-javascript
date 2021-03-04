@@ -45,22 +45,22 @@ class Carrito {
 
     obtenerSubtotal() {
         return this.obtenerItems().reduce((acum, item) => {
-            acum += item.precio * item.cantidad;
-            if (item.porcentajeDescuento) {
-                acum = acum - acum * item.descuentoPorcentaje / 100;
-            }
+            let precio = item.descuentoPorcentaje ? item.precio - item.precio * item.descuentoPorcentaje / 100 : item.precio;
+            acum += precio * item.cantidad;
             return acum;
         }, 0);
     }
 
     obtenerTotal() {
         let total = this.obtenerSubtotal();
-        if (this.descuento > 0)
-            total = total - (total * this.descuento / 100)
         return total;
     }
 
-    setDescuento(){
-
+    setDescuento(descuento){
+        const items = this.obtenerItems()
+        items.forEach(item => {
+            item.descuentoPorcentaje += descuento;
+        });
+        this._guardarItems(items);
     }
 }

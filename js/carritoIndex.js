@@ -13,6 +13,7 @@ function aplicarDescuento() {
     if (codDescuento == "Summer2021") {
         descuento = 30;
         carritoManager.setDescuento(descuento);
+        triggerCarritoChanged();
         bootbox.alert(`El descuento ha sido aplicado, el precio final es de ${formateadorMoneda.format(carritoManager.obtenerTotal())}`);
     } else {
         bootbox.alert('El código de descuento ingresado es incorrecto');
@@ -27,13 +28,16 @@ const mostrarTotalesEnPantalla = () => {
 
 const calcularSubTotalItem = (item) => {
     let total = item.cantidad * item.precio;
-    if(item.descuentoPorcentaje) total = total - total * item.descuentoPorcentaje / 100;
+    if (item.descuentoPorcentaje) total = total - total * item.descuentoPorcentaje / 100;
     return total;
 }
 
-$(document).ready(() => {
+const dibujarItemsEnPantalla = () => {
+    const itemContainer = $("#item-container");
+    itemContainer.empty();
+
     carritoManager.obtenerItems().forEach(item => {
-        $("#item-container").append(`
+        itemContainer.append(`
         <tr data-id="${item.id}">
             <td><img src="/${item.imagen}" alt="" style="width: 50px; height: 50px;" /></td>
             <td>
@@ -59,6 +63,10 @@ $(document).ready(() => {
         </tr>
         `)
     });
+}
+
+$(document).ready(() => {
+    dibujarItemsEnPantalla();
 
     mostrarTotalesEnPantalla();
 
@@ -86,12 +94,13 @@ $(document).ready(() => {
             })
         }
 
+        dibujarItemsEnPantalla();
         mostrarTotalesEnPantalla();
     });
 
-    $(window).on("keydown", (evt) =>{
-       if(evt.keyCode === 13){
-           $(".buttonAgregarCarrito").click();
-       } 
+    $(window).on("keydown", (evt) => {
+        if (evt.keyCode === 13) {
+            $(".buttonAgregarCarrito").click();
+        }
     });
 });
