@@ -17,16 +17,15 @@ button {
     margin-top: 5px;
 }
 
-
 input:focus, textarea:focus {
     border: 1px solid #bd819c !important;
     box-shadow: 0 0 3px #e0aaca !important;
-    }
-    
-    input:focus, textarea:focus, select:focus {
+}
+
+input:focus, textarea:focus, select:focus {
     outline-offset: 0px !important;
     outline: none !important;
-    }
+}
 
 .titulo, h1, h2, h3, h4, h5, h6, p, label {
     font-family: 'Quicksand', sans-serif;
@@ -305,9 +304,20 @@ a:hover {
     color: #a658af;
 }
 
-.bootbox-alert div div div button.btn-primary{
-    background-color: #bd819c;
-    border-radius: 20px; 
+.bootbox-alert .bb-alternate-modal div div div button.btn-primary {
+    background-color: #bd819c !important;
+    border-radius: 20px;
     display: block;
+}
+
+.modal.bb-alternate-modal .modal-content {
+    background: #e9c3da;
    
+}
+
+
+.loading-spinner{
+    color: #bd819c;
+    background: #e9c3da;
+ 
 }

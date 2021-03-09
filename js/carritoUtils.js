@@ -18,12 +18,14 @@ function agregarAlCarrito(evt) {
             width: "400px",
             showConfirmButton: true,
             confirmButtonColor: "#bd819c",
-            confirmButtonPositon: 'right'
+            confirmButtonPositon: 'right',
+            background: '#e9c3da'
         });
+    
 
 
     } else {
-        bootbox.alert(`Ha ocurrido un error: No se encontro el producto con id ${idProducto}`);
+        bootbox.alert(`Ha ocurrido un error: no se encontró el producto con id ${idProducto}`);
     }
 }
 
@@ -40,8 +42,19 @@ function eliminarItemCarrito(evt) {
 }
 
 function irAlCarrito() {
-    if (!carritoManager) throw Error('No existe carritoManager');
-    if (carritoManager.obtenerItems().length === 0) return;
+    if (!carritoManager) throw Error('Carrito es undefined');
+    if (carritoManager.obtenerItems().length === 0) {
+        Swal.fire({
+            title: 'No tiene artículos en su carrito de compra',
+            showConfirmButton: true,
+            confirmButtonColor: "#bd819c"
+
+        });
+        $(".swal2-modal").css('background-color', '#e9c3da');
+        $(".swal2-container.in").css('background-color', 'rgba(43, 165, 137, 0.45)');
+
+        return;
+    }
 
     location.href = '/pages/carrito';
 }
@@ -54,7 +67,7 @@ function limpiarCarrito() {
 function comprar() {
     const items = carritoManager.obtenerItems();
     if (items && items.length > 0) {
-    //    location.
+        location.href = "/pages/order";
     }
 }
 

@@ -6,7 +6,12 @@ function aplicarDescuento() {
     let descuento = 0;
 
     if (!codDescuento || codDescuento.length === 0) {
-        bootbox.alert('Ingrese un código de descuento');
+        Swal.fire({
+            title: 'Ingrese un código de descuento',
+            showConfirmButton: true,
+            confirmButtonColor: "#bd819c",
+            background: '#e9c3da'
+        });
         return;
     }
 
@@ -14,10 +19,19 @@ function aplicarDescuento() {
         descuento = 30;
         carritoManager.setDescuento(descuento);
         triggerCarritoChanged();
-        bootbox.alert(`El descuento ha sido aplicado, el precio final es de ${formateadorMoneda.format(carritoManager.obtenerTotal())}`);
+        Swal.fire({
+            title: `El descuento ha sido aplicado, el precio final es de ${formateadorMoneda.format(carritoManager.obtenerTotal())}`,
+            showConfirmButton: true,
+            confirmButtonColor: "#bd819c",
+            background: '#e9c3da'
+        });
     } else {
-        bootbox.alert('El código de descuento ingresado es incorrecto');
-
+        Swal.fire({
+            title: 'El código de descuento ingresado es incorrecto',
+            showConfirmButton: true,
+            confirmButtonColor: "#bd819c",
+            background: '#e9c3da'
+        });
     }
 }
 
@@ -39,7 +53,7 @@ const dibujarItemsEnPantalla = () => {
     carritoManager.obtenerItems().forEach(item => {
         itemContainer.append(`
         <tr data-id="${item.id}">
-            <td><img src="/${item.imagen}" alt="" style="width: 50px; height: 50px;" /></td>
+            <td><img src="/${item.imagen}" alt="{item.nombre}" style="width: 50px; height: 50px;" /></td>
             <td>
                 ${item.tipoDeProducto} ${item.nombre}
             </td>

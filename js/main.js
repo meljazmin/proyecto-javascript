@@ -30,7 +30,12 @@ function cargarPantallaContactos() {
     var contactoForm = document.getElementById("contactoForm");
     contactoForm.onsubmit = function (evt) {
         evt.preventDefault();
-        alert("Se ha enviado la información");
+        Swal.fire({
+            title: "Información enviada!",
+            showConfirmButton: true,
+            confirmButtonColor: "#bd819c",
+            background: '#e9c3da'
+        });
         return;
     }
 }
@@ -41,14 +46,6 @@ function cargarPantallaContactos() {
 // new WOW().init();
 // ACA ARRANCA LA WEBAPP
 window.onload = function (event) {
-    // event.preventDefault();
-    // bootbox.alert({
-    //     message: '¡Suscribite a nuestro newsletter!',
-    //     className: 'rubberBand animated'
-    // });
-
-
-
     triggerCarritoChanged();
 
     cargarPantallaProductos();
