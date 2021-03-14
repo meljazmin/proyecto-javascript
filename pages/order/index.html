@@ -35,6 +35,7 @@
         crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
     <!-- <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js" defer></script> -->
+    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js" defer></script>
     <script src="https://unpkg.com/scrollreveal" defer></script>
     <!--Javascript-->
     <script src="../../js/Producto.js" defer></script>
@@ -56,49 +57,122 @@
         <header>
             <h1>Mis compras</h1>
         </header>
-        <div class="row">
-            <div class="col-sm-8">
-                <form>
-                    <div class="form-group">
-                        <label for="inputEmail">Nombre y apellido</label>
-                        <input type="text" class="form-control" id="inputEmail" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Email</label>
-                        <input type="email" class="form-control" id="inputAddress" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Dirección</label>
-                        <input type="text" class="form-control" id="inputAddress2" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Localidad</label>
-                            <input type="text" class="form-control" id="inputCity" required>
+        <form id="paymentForm">
+            <div class="row" style="background-color: rgba(0,0,0,0.1); height: 100%;">
+                <div class="col-sm-8">
+                    <h3>Detalles del comprador</h3>
+                    <div>
+                        <div class="form-group">
+                            <label for="inputEmail">Nombre y apellido</label>
+                            <input type="text" class="form-control" id="inputEmail" required />
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputZip">Código postal</label>
-                            <input type="text" class="form-control" id="inputZip" required>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input id="email" class="form-control" name="email" type="text" placeholder="test@test.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress2">Dirección</label>
+                            <input type="text" class="form-control" id="inputAddress2" required />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                                <label for="inputCity">Localidad</label>
+                                <input type="text" class="form-control" id="inputCity" required />
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip">Código postal</label>
+                                <input type="text" class="form-control" id="inputZip" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck" />
+                                <label class="form-check-label" for="gridCheck">
+                                    Recibir notificaciones de nuestros descuentos y novedades
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="docType">Tipo de documento</label>
+                                <select id="docType" class="form-control" name="docType" data-checkout="docType"
+                                    type="text" required></select>
+                            </div>
+                            <div class="form-group col-md-9">
+                                <label for="docNumber">Número de documento</label>
+                                <input id="docNumber" class="form-control" name="docNumber" data-checkout="docNumber"
+                                    type="text" required />
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Recibir notificaciones de nuestros descuentos y novedades
-                            </label>
+                    <h3>Detalles de la tarjeta</h3>
+                    <div>
+                        <div class="form-group">
+                            <label for="cardholderName">Titular de la tarjeta</label>
+                            <input id="cardholderName" data-checkout="cardholderName" type="text"
+                                class="form-control" required />
+                        </div>
+                        <div>
+                            <label for="">Fecha de vencimiento</label>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" placeholder="MM" id="cardExpirationMonth"
+                                        data-checkout="cardExpirationMonth" onselectstart="return false"
+                                        onpaste="return false" oncopy="return false" oncut="return false"
+                                        ondrag="return false" ondrop="return false" autocomplete=off
+                                        class="form-control" required />
+                                </div>
+                                <span class="date-separator">/</span>
+                                <div class="col">
+                                    <input type="text" placeholder="YY" id="cardExpirationYear"
+                                        data-checkout="cardExpirationYear" onselectstart="return false"
+                                        onpaste="return false" oncopy="return false" oncut="return false"
+                                        ondrag="return false" ondrop="return false" autocomplete=off
+                                        class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-8">
+                                <label for="cardNumber">Número de la tarjeta</label>
+                                <input type="text" id="cardNumber" data-checkout="cardNumber"
+                                    onselectstart="return false" onpaste="return false" oncopy="return false"
+                                    oncut="return false" ondrag="return false" ondrop="return false" autocomplete=off
+                                    class="form-control" required />
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="securityCode">Código de seguridad</label>
+                                <input id="securityCode" data-checkout="securityCode" type="text"
+                                    onselectstart="return false" onpaste="return false" oncopy="return false"
+                                    oncut="return false" ondrag="return false" ondrop="return false" autocomplete=off
+                                    class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div id="issuerInput" class="form-group col-sm-10">
+                                <label for="issuer">Banco emisor</label>
+                                <select id="issuer" name="issuer" data-checkout="issuer" class="form-control" required></select>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label for="installments">Cuotas</label>
+                                <select type="text" id="installments" name="installments" class="form-control" required></select>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="hidden" name="transactionAmount" id="transactionAmount" />
+                            <input type="hidden" name="paymentMethodId" id="paymentMethodId" />
+                            <input type="hidden" name="description" id="description" />
                         </div>
                     </div>
-
-                </form>
-            </div>
-            <div class="col-sm-4">
-                <div class="container-fluid" style="background-color: rgba(0,0,0,0.1); height: 100%;">
-                    <p>Total: $ <span id="order-total-price"></span></p>
-                    <button class="btn btn-block button2">Realizar pedido</button>
+                </div>
+                <div class="col-sm-4">
+                    <div class="container-fluid">
+                        <p>Total: $ <span id="order-total-price"></span></p>
+                        <button id="submitButton" type="submit" class="btn btn-block button2">Realizar pedido</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 
