@@ -1,5 +1,22 @@
 window.Mercadopago.setPublishableKey("TEST-cedd6960-03b4-4df3-abc4-614d4095058c");
 
+const generatePayment = (data) => {
+    return fetch('https://api.mercadopago.com/v1/payments', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'content-type': 'application/json',
+            'Authorization': 'Bearer TEST-7396004152047852-031405-b030620d81f01db2826e4cfd523493af-110784326'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .catch(error => {
+            console.error(error);
+            throw error;
+        });
+}
+
 let doSubmit = false;
 function getCardToken(event) {
     event.preventDefault();
@@ -23,15 +40,7 @@ function getCardToken(event) {
         }
     };
 
-    fetch('https://api.mercadopago.com/v1/payments', {
-        method: 'POST',
-        headers: {
-            'accept': 'application/json',
-            'content-type': 'application/json',
-            'Authorization': 'Bearer TEST-7396004152047852-031405-b030620d81f01db2826e4cfd523493af-110784326'
-        },
-        body: JSON.stringify(data)
-    }).then(res => res.json()).then(data => {
+    generatePayment(data).then(data => {
         if (data.status === 'approved') {
             Swal.fire({
                 title: 'Pago',
@@ -42,22 +51,37 @@ function getCardToken(event) {
                 background: '#e9c3da'
             });
         } else {
-            const error = new Error();
-            error.name = data.status;
-            error.message = data.status_detail;
-            throw error;
+            let msg = `Ocurrio un error con el pago`;
+            if (data.cause) {
+                msg += `<p>Causas</p>`
+                let causesList = '<ul>';
+                data.cause.forEach(cause => {
+                    causesList += `<li>${cause.code} - ${cause.description}</li>`;
+                });
+                causesList += '</ul>';
+                msg += causesList;
+            }
+            Swal.fire({
+                titleText: 'Pago',
+                html: msg,
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonColor: "#bd819c",
+                background: '#e9c3da'
+            });
+            // return;
         }
     }).catch(error => {
-        console.error(error);
         Swal.fire({
-            title: 'Pago',
-            text: `Ocurrio un error con la generacion del pago: ${error.name} - ${error.message}`,
+            title: 'Error tecnico',
+            text: `Ocurrio un error con la integración con Mercado Pago: ${error.name} - ${error.message}`,
             icon: 'error',
             showConfirmButton: true,
             confirmButtonColor: "#bd819c",
             background: '#e9c3da'
         });
     });
+
     return;
 };
 

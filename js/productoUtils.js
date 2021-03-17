@@ -11,7 +11,6 @@ function cargarProductos() {
         productosObjeto = [];
 
         // mostrar componente loading
-        // $("#loading").show()
         LoadingService.showLoading();
         // llamada a servicio
         $.ajax({
@@ -27,8 +26,6 @@ function cargarProductos() {
             reject();
         }).always(function () {
             // esto se ejecuta siempre
-            // ocultar loading
-            // $("#loading").hide();
             LoadingService.hideLoading();
         });
 
