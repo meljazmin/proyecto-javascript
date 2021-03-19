@@ -29,6 +29,7 @@ function getCardToken(event) {
     }
 
     const data = {
+        binary_mode: true,
         "transaction_amount": parseFloat($form.querySelector('#transactionAmount').value),
         "token": $form.querySelector('#token').value,
         "description": $form.querySelector('#description').value,
@@ -40,37 +41,50 @@ function getCardToken(event) {
         }
     };
 
+    // TODO: NO FUNCIONA. ARREGLAR
     generatePayment(data).then(data => {
-        if (data.status === 'approved') {
-            Swal.fire({
-                title: 'Pago',
-                text: `¡Ha realizado con exito su compra! Su id de transaccion es ${data.id}`,
-                icon: 'success',
-                showConfirmButton: true,
-                confirmButtonColor: "#bd819c",
-                background: '#e9c3da'
-            });
-        } else {
-            let msg = `Ocurrio un error con el pago`;
-            if (data.cause) {
-                msg += `<p>Causas</p>`
-                let causesList = '<ul>';
-                data.cause.forEach(cause => {
-                    causesList += `<li>${cause.code} - ${cause.description}</li>`;
-                });
-                causesList += '</ul>';
-                msg += causesList;
-            }
-            Swal.fire({
-                titleText: 'Pago',
-                html: msg,
-                icon: 'error',
-                showConfirmButton: true,
-                confirmButtonColor: "#bd819c",
-                background: '#e9c3da'
-            });
-            // return;
-        }
+        // if (data.status === 'approved') {
+        //     Swal.fire({
+        //         title: 'Pago',
+        //         text: `¡Ha realizado con exito su compra! Su id de transaccion es ${data.id}`,
+        //         icon: 'success',
+        //         showConfirmButton: true,
+        //         confirmButtonColor: "#bd819c",
+        //         background: '#e9c3da'
+        //     });
+        // } else {
+        //     let msg = `Ocurrio un error con el pago`;
+        //     if (data.cause) {
+        //         msg += `<p>Causas</p>`
+        //         let causesList = '<ul>';
+        //         data.cause.forEach(cause => {
+        //             causesList += `<li>${getDescriptionByCode(cause.code, cause.description)}</li>`;
+        //         });
+        //         causesList += '</ul>';
+        //         msg += causesList;
+        //     }
+        //     Swal.fire({
+        //         titleText: 'Pago',
+        //         html: msg,
+        //         icon: 'error',
+        //         showConfirmButton: true,
+        //         confirmButtonColor: "#bd819c",
+        //         background: '#e9c3da'
+        //     });
+        //     // return;
+        // }
+
+        Swal.fire({
+            title: 'Pago',
+            text: `¡Ha realizado con exito su compra!`,
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonColor: "#bd819c",
+            background: '#e9c3da'
+        }).then((result) => {
+            limpiarCarrito();
+            window.location.href = "/";
+        });
     }).catch(error => {
         Swal.fire({
             title: 'Error tecnico',
@@ -98,9 +112,19 @@ function setCardTokenAndPay(status, response) {
         // form.submit();
         form.querySelector('#submitButton').click();
     } else {
+        let msg = `Ocurrio un error con el pago`;
+        if (response.cause) {
+            msg += `<p>Causas</p>`
+            let causesList = '<ul>';
+            response.cause.forEach(cause => {
+                causesList += `<li>${getDescriptionByCode(cause.code, cause.description)}</li>`;
+            });
+            causesList += '</ul>';
+            msg += causesList;
+        }
         Swal.fire({
-            title: 'Error',
-            text: "Verify filled data!\n" + JSON.stringify(response, null, 4),
+            titleText: 'Verificacion de datos',
+            html: msg,
             icon: 'error',
             showConfirmButton: true,
             confirmButtonColor: "#bd819c",
